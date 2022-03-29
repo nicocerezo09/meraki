@@ -1,6 +1,7 @@
 import './NavBar.css'
 
-const NavBar = () => {
+const NavBar = (props) => {
+    console.log(props)
     return(
     <nav class="navbar navbar-expand-lg navbar-light bg-light pb-0 pt-0">
         <div class="container-fluid">
