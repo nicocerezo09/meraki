@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import Button from './components/Button/Button';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
+
 const App = () => {
   const myFunction = () => {
     console.log('hice click en el boton')
@@ -13,10 +14,9 @@ const App = () => {
     <>
       <div className="App">
         <NavBar />
-        <h1>Hola nico</h1>
+        <ItemListContainer greeting={'Bienvenidos'}/>
         <Counter />
-        <Button callback={myFunction} label="Mi boton" />
-        <ItemListContainer greeting={'Hola mundo!'}/>
+        <Button callback={myFunction} label="Agregar al carrito" />
       </div>
     </>
   );
