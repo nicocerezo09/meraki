@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import './Counter.css';
 const Counter = () => {
     
@@ -7,17 +7,6 @@ const Counter = () => {
     
     const [count, setCount] = useState(1)
     
-
-    useEffect(() => {
-        console.log('se acaba de montar el componente')
-        setTimeout(() =>{
-            setCount(1)
-        }, 3000)
-    }, [])
-
-    useEffect(() => {
-        console.log('cambio el count')
-    }, [count])
 
     const decrement = () => {
         if (count > initial) {
@@ -30,7 +19,7 @@ const Counter = () => {
         setCount(count + 1)
         }
     }
-    console.log('se va a montar el componente')
+    
 
     return(  
         <div className="BotonesHorizontal">

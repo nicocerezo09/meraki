@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
-import { fakeFetch } from "../../asyncmock"
+import { getProducts } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
 const ItemListContainer = (props) => {
     const [products, setProducts] = useState([])
 
     useEffect (() => {
-        fakeFetch().then( prods => {
+        getProducts().then( prods => {
             setProducts(prods)
         }).catch(error => {
             console.log(error)
