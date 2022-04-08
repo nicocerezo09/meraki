@@ -1,8 +1,18 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { getCategories } from '../../asyncmock'
 
-const NavBar = (props) => {
-    console.log(props)
+const NavBar = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() =>{
+        getCategories().then(categories =>{
+            setCategories(categories)
+        })
+    }, [])
+
     return(
     <nav className='navbar navbar-expand-lg navbar-light bg-light pb-0 pt-0'>
         <div className='container-fluid'>
@@ -12,23 +22,26 @@ const NavBar = (props) => {
             <div className='collapse navbar-collapse justify-content-center mb-0 mt-0' id='navbarSupportedContent'>
                 <ul className='navbar-nav me-5 mb-2 mb-lg-0'>
                     <li className='nav-item'>
-                         <a className='nav-link active' aria-current='page' href='#'>Historia</a>
+                         <Link to='/list' className='nav-link active' aria-current='page' >List</Link>
                          </li>
                     <li className='nav-item'>
-                        <a className='nav-link active' href='#'>Turnos</a>
+                        <Link to ='/' className='nav-link active' >Turnos</Link>
                      </li>
                     <li className='nav-item dropdown'>
-                        <a className='nav-link dropdown-toggle active' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <Link  to ='/' className='nav-link dropdown-toggle active'  id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                             Servicios
-                        </a>
+                        </Link>
                 <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
-                    <li><a className='dropdown-item' href='#'>Corte</a></li>
-                    <li><a className='dropdown-item' href='#'>Peinado</a></li>
-                    <li><a className='dropdown-item' href='#'>Coloracion</a></li>
+                    <li><Link to ='/' className='dropdown-item' >Corte</Link></li>
+                    <li><Link to ='/' className='dropdown-item' >Peinado</Link></li>
+                    <li><Link to ='/' className='dropdown-item' >Coloracion</Link></li>
                 </ul>
                     </li>
                     <li className='nav-item'>
-                        <a className='nav-link active'>Producciones</a>
+                        <Link to ='/' className='nav-link active' >Producciones</Link>
+                    </li>
+                    <li className='nav-item'>
+                        { categories.map(cat => <Link key={cat.id} to={`/category/${cat.id}`} className='nav-link active'>{cat.description}</Link>)}
                     </li>
                 </ul>
                 <img src={'./images/logo1.png'} alt='' width='150' height='130' className='me-5'/>

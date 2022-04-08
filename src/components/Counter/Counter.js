@@ -3,7 +3,7 @@ import './Counter.css';
 const Counter = () => {
     
     const initial = 1
-    const stock = 7
+    const stock = 50
     
     const [count, setCount] = useState(1)
     
