@@ -14,7 +14,7 @@ const CartWidget = () => {
             </svg></Link>
             { getQuantity() }
         </div>
-        )
+        );
 }
 
 export default CartWidget
