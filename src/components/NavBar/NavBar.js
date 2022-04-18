@@ -21,9 +21,14 @@ const NavBar = () => {
             </button>
             <div className='collapse navbar-collapse justify-content-center mb-0 mt-0' id='navbarSupportedContent'>
                 <ul className='navbar-nav me-5 mb-2 mb-lg-0'>
-                    <li className='nav-item'>
-                         <Link to='/list' className='nav-link active' aria-current='page' >List</Link>
-                         </li>
+                <li className='nav-item dropdown'>
+                        <Link  to ='/' className='nav-link dropdown-toggle active'  id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                            Productos
+                        </Link>
+                <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+                { categories.map(cat => <Link key={cat.id} to={`/category/${cat.id}`} className='nav-link active'>{cat.description}</Link>)}
+                </ul>
+                    </li>
                     <li className='nav-item'>
                         <Link to ='/' className='nav-link active' >Turnos</Link>
                      </li>
@@ -40,12 +45,10 @@ const NavBar = () => {
                     <li className='nav-item'>
                         <Link to ='/' className='nav-link active' >Producciones</Link>
                     </li>
-                    <li className='nav-item'>
-                        { categories.map(cat => <Link key={cat.id} to={`/category/${cat.id}`} className='nav-link active'>{cat.description}</Link>)}
-                    </li>
+                    
                 </ul>
-                <img src={'./images/logo1.png'} alt='' width='150' height='130' className='me-5'/>
-            <form className='d-flex'>
+               <Link to='/'> <img src={'./images/logo1.png'} alt='' width='150' height='130' className='me-5'/></Link> 
+            <form className='d-flex'> 
                 <input className='form-control me-2' type='search' placeholder='Buscar' aria-label='Search'/>
                 <button className='btn btn-outline-dark' type='submit'>Buscar</button>
             </form>

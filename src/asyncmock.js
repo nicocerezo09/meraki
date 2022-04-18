@@ -21,7 +21,7 @@ const products = [
     },
     { 
     id: '3', 
-    name: 'Shampoo Silver White Treat Naturetech', 
+    name: 'Shampoo Silver White', 
     price: 1500, 
     category: 'Shampoo',
     img: 'https://mensandbeauty.com/wp-content/uploads/2019/06/mejores-productos-de-cabello-para-hombre-shampoos-montibello-champu-silver-white-treat-naturtech-1.jpg.webp',
