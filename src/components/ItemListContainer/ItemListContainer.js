@@ -4,8 +4,9 @@ import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.css'
 import { useParams } from "react-router-dom"
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
+    const[title, setTitle] = useState()
 
     const { categoryId } = useParams()
 
@@ -17,11 +18,16 @@ const ItemListContainer = (props) => {
         })
     }, [categoryId])
 
+    useEffect(() => {
+        setTimeout(() => {
+            setTitle('este titulo aparecio despues de 2 seg')
+        }, 2000)
+    })
 
 
     return(
         <div>
-        <h1>{props.greeting}</h1>
+        <h1>{title}</h1>
         <ItemList products={products} />
         </div>
     )

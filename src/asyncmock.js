@@ -72,15 +72,10 @@ export const getCategories = () => {
 
 
 export const getProducts = (categoryId) => {
-    return new Promise ((resolve, reject) => {
-        const ok = true;
-            setTimeout(() => {
-                if (ok){
-                    resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products);
-                } else {
-                    reject('error');
-                }
-            }, 500);
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products)
+        }, 500)
     })
 }
 

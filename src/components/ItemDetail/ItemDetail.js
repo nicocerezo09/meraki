@@ -1,13 +1,16 @@
 import Counter from "../Counter/Counter"
-import { useState ,useContext } from "react"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import CartContext from "../Context/CartContext"
+import CartContext from "../../Context/CartContext"
+import { useNotification } from "../../notification/Notification"
 
 
 const ItemDetail = ({id, name, img, category, description, price, stock  }) => {
     
 
-    const { addItem, isInCart } = useContext(CartContext)
+    const { addItem, isInCart, getQuantityProd } = useContext(CartContext)
+
+    const { setNotification } = useNotification()
 
     const handleAdd = (count) => {
     
@@ -16,6 +19,8 @@ const ItemDetail = ({id, name, img, category, description, price, stock  }) => {
         }
 
         addItem(objProd)
+
+        setNotification('error', `Se agregaron ${count} ${name} correctamente`)
         
     }
 
@@ -34,7 +39,7 @@ const ItemDetail = ({id, name, img, category, description, price, stock  }) => {
             <p className="card-text">Descripcion: {description}</p>
             <p className="card-text">Precio: ${price}</p>
             {/* <Select options={options} onSelect={handleSelect} /> */}
-            { isInCart(id) ? <Link to='/cart'>Ir al carrito</Link> : <Counter onConfirm={handleAdd} stock={stock} />}
+            { isInCart(id) ? <Link to='/cart'>Ir al carrito</Link> : <Counter onConfirm={handleAdd} stock={stock} initial={getQuantityProd(id)} />}
             </div>
         </div>
         </div>
