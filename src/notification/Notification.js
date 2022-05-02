@@ -26,9 +26,7 @@ const Notification = ({message, severity, otherClass = 'Message'}) => {
     } : {}
   
     return (
-      <div {...config}
-      //  style={notificationStyles} className={`${severity === 'succes' ? 'Succes' : 'Error'} Message`}
-       >
+      <div {...config}>
         { message }
       </div>
     )
