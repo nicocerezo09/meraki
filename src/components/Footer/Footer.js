@@ -1,5 +1,5 @@
 import './Footer.css'
-import { FaCcVisa, FaBitcoin, FaDollarSign } from "react-icons/fa";
+import { FaCcVisa, FaDollarSign } from "react-icons/fa";
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 
@@ -9,10 +9,10 @@ const Footer = () =>{
         <footer>
             <div className="container">
                 <div>
-                    <p>Entregas a domicilio</p>
+                    <p>Retiros por el local</p>
                 </div>
                 <div>
-                    <p>Todos los medios de pago</p>
+                    <p>Aceptamos tarjeta y efectivo</p>
                     <div>
                         <ul>
                             <li><FaCcVisa/></li>

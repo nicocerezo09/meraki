@@ -1,7 +1,7 @@
 
 import { useContext, useState } from "react";
 import  { UserContext } from "../../Context/UserProvider";
-
+import './Register.css';
 
 export const Register = () => {
 
@@ -23,8 +23,8 @@ export const Register = () => {
 
   return (
     <>
-        <h1>Registrarme</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className="title">Registrarme</h1>
+        <form className="container" onSubmit={handleSubmit}>
             <input 
             type="email" 
             placeholder="ingrese email"
@@ -37,7 +37,7 @@ export const Register = () => {
             value={password}
             onChange= {e => setPassword(e.target.value)} 
             />
-            <button type="submit">Registrar</button>
+            <button className="btn" type="submit">Registrar</button>
         </form>
     </>
   )
