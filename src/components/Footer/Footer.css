@@ -1,0 +1,34 @@
+footer {
+    background-color: white;
+    width: 100%;
+    clear: both;
+    margin-top: 0px;
+    padding-top: 0px;
+    left: 0;
+    bottom: 0;
+    overflow: visible;
+}
+ul {
+    list-style: none;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px;
+    color: black;
+    font-size: 14px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    font-size: 24px;
+}
+
+.social {
+    margin-right: 16px;
+}

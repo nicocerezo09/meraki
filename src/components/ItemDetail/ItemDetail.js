@@ -3,6 +3,7 @@ import { useContext } from "react"
 import CartContext from "../../Context/CartContext"
 import { useNotification } from "../../notification/Notification"
 import { Link } from 'react-router-dom'
+import './ItemDetail.css'
 
 const ItemDetail = ({id, name, img, category, description, price, stock  }) => {
     
@@ -24,13 +25,10 @@ const ItemDetail = ({id, name, img, category, description, price, stock  }) => {
     }
 
 
-    // const handleSelect = (text) => {
-    //     console.log(`el color seleccionado es ${text}`)
-    // }
     
     return (
         <div className="col">
-        <div className="card mt-2">
+        <div className="card mt-2 titleItemDetail">
             <img src={img} className="card-img-top" alt={name} />
             <div className="card-body">
             <h5 className="card-title">{name}</h5>

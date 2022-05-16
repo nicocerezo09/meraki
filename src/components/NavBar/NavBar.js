@@ -1,13 +1,25 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { firestoreDb } from '../../services/firebase'
 import { getDocs, collection } from 'firebase/firestore'
+import { UserContext } from '../../Context/UserProvider'
+import { async } from '@firebase/util'
 
 
 const NavBar = () => {
-    const [categories, setCategories] = useState([])
+
+    const { user, signOutUser } = useContext(UserContext);
+    const [categories, setCategories] = useState([]);
+
+    const handleClickLogout = async() => {
+        try{
+            await signOutUser()
+        } catch (erorr) {
+            console.log(erorr.code)
+        }
+    }
 
     useEffect(() =>{
         // getCategories().then(categories =>{
@@ -32,7 +44,7 @@ const NavBar = () => {
             </button>
             <div className='collapse navbar-collapse justify-content-center mb-0 mt-0' id='navbarSupportedContent'>
                 <ul className='navbar-nav me-5 mb-2 mb-lg-0'>
-                <li className='nav-item dropdown'>
+                <li className='nav-item dropdown mt-4'>
                         <Link  to ='/' className='nav-link dropdown-toggle active'  id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                             Productos
                         </Link>
@@ -40,29 +52,40 @@ const NavBar = () => {
                 { categories.map(cat => <Link key={cat.id} to={`/category/${cat.id}`} className='nav-link active'>{cat.description}</Link>)}
                 </ul>
                     </li>
-                    <li className='nav-item'>
+                    <li className='nav-item mt-4'>
                         <Link to ='/' className='nav-link active' >Turnos</Link>
                      </li>
-                    <li className='nav-item dropdown'>
-                        <Link  to ='/' className='nav-link dropdown-toggle active'  id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                    <li className='nav-item mt-4'>
+                        <Link  to ='/' className='nav-link  active'>
                             Servicios
                         </Link>
-                <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
-                    <li><Link to ='/' className='dropdown-item' >Corte</Link></li>
-                    <li><Link to ='/' className='dropdown-item' >Peinado</Link></li>
-                    <li><Link to ='/' className='dropdown-item' >Coloracion</Link></li>
-                </ul>
                     </li>
                     <li className='nav-item'>
-                        <Link to ='/' className='nav-link active' >Producciones</Link>
+                        <Link to='/'> <img src={'./images/logo1.png'} alt='' width='150' height='100' className=''/></Link>
+                    </li>
+                    <div>
+                        { user ? (
+                            <>
+                            
+                                <button className='mt-4' onClick={handleClickLogout} >Cerrar Sesion</button>
+                            
+                            </>
+                        ) : (
+                            <>
+                            <li className='nav-item mt-4'>
+                                <Link to ='/Login' className='nav-link active mt-4' >Iniciar Sesion</Link>
+                                
+                            </li>
+                            </>
+                    )}
+                    </div>
+                    <li>
+                    <Link to ='/Register' className='nav-link active mt-4' >Registrarme</Link>
                     </li>
                     
                 </ul>
-               <Link to='/'> <img src={'./images/logo1.png'} alt='' width='150' height='130' className='me-5'/></Link> 
-            <form className='d-flex'> 
-                <input className='form-control me-2' type='search' placeholder='Buscar' aria-label='Search'/>
-                <button className='btn btn-outline-dark' type='submit'>Buscar</button>
-            </form>
+                
+            
             <div>
             <CartWidget />
             </div>

@@ -1,12 +1,13 @@
 .Success {
     background-color: green;
+    border-radius: 3px;
+    font-family: 'BIZ UDPMincho', serif;
+    font-weight: bold;
 }
 
 .Error {
     background-color: red;
-}
-
-.Message {
-    color: white;
-    border-radius: 10px;
+    border-radius: 3px;
+    font-family: 'BIZ UDPMincho', serif;
+    font-weight: bold;
 }

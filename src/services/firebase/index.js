@@ -1,18 +1,23 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
+import { getAuth } from "firebase/auth"
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA61U06sumcKMuA0LNxGFvuoLC_TIv7sf4",
-  authDomain: "meraki-7db96.firebaseapp.com",
-  projectId: "meraki-7db96",
-  storageBucket: "meraki-7db96.appspot.com",
-  messagingSenderId: "481458385972",
-  appId: "1:481458385972:web:e90b77e0168cebbad80661"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-export const firestoreDb = getFirestore(app)
+
+export { auth };
+export const firestoreDb = getFirestore(app);

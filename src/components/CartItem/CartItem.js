@@ -2,7 +2,7 @@ import { useContext } from "react";
 import CartContext from "../../Context/CartContext";
 
 
-const CartItem = ({ id, name, quantity, price }) => {
+const CartItem = ({ id, name, quantity, price, img }) => {
     const { removeItem } = useContext(CartContext)
 
     const handleRemove = (id) => {

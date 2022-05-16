@@ -1,0 +1,123 @@
+
+input {
+    border-radius: 5px;
+    width: 350px;
+    height: 50px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 0.5rem;
+}
+
+.titleCenter{
+    display: flex;
+    justify-content: center;
+}
+.codeCenter{
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 3rem;
+}
+
+.buyTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    margin: 5rem 0;
+    text-align: center;
+    color: white;
+}
+
+.containerForm {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backgroundForm{
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.redWrong {
+    border: 2px solid rgb(122, 11, 11);
+}
+
+.greenOk {
+    border: 2px solid rgba(0, 128, 0, 0.482);
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px;
+}
+
+.code {
+    margin: 3rem 0;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+}
+
+.finish {
+    padding: 2px;
+    width: 200px;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    margin: 25px;
+    background-color: #D67E0E;
+    color: white;
+    padding: 1rem;
+    position: relative;
+}
+
+.processingBuy {
+    margin: 200px;
+    
+}
+
+.loader {
+    width: 68px;
+    height: 68px;
+    border: 5px solid #FFF;
+    border-bottom-color: #D67E0E;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
